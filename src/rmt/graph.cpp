@@ -10,6 +10,7 @@
  * @date        2023-07-17
  */
 #include <rmt/graph.hpp>
+#include <rmt/utils.hpp>
 #include <cut/cut.hpp>
 #include <set>
 #include <queue>

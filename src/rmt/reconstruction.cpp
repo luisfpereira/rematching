@@ -12,6 +12,7 @@
 #define NOMINMAX
 #include <rmt/reconstruction.hpp>
 #include <rmt/voronoifps.hpp>
+#include <rmt/utils.hpp>
 #include <igl/is_vertex_manifold.h>
 #include <igl/is_edge_manifold.h>
 #include <igl/per_face_normals.h>

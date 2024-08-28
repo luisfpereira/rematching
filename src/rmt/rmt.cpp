@@ -10,6 +10,7 @@
  * @date        2023-10-26
  */
 #include <rmt/rmt.hpp>
+#include <rmt/utils.hpp>
 #include <igl/is_edge_manifold.h>
 #include <igl/is_vertex_manifold.h>
 

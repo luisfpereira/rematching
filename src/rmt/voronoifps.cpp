@@ -10,6 +10,7 @@
  * @date        2024-01-15
  */
 #include <rmt/voronoifps.hpp>
+#include <rmt/utils.hpp>
 #include <random>
 #include <queue>
 

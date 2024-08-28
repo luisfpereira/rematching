@@ -10,6 +10,7 @@
  * @date        2023-10-26
  */
 #include <rmt/io.hpp>
+#include <rmt/utils.hpp>
 
 #include <filesystem>
 #include <algorithm>

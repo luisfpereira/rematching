@@ -10,6 +10,7 @@
  * @date        2024-01-12
  */
 #include <rmt/region.hpp>
+#include <rmt/utils.hpp>
 
 
 rmt::SurfaceRegion::SurfaceRegion(int pi) : rmt::SurfaceRegion(pi, std::numeric_limits<int>::max() - 1) { }

@@ -10,6 +10,7 @@
  * @date        2023-07-25
  */
 #include <rmt/weightmap.hpp>
+#include <rmt/utils.hpp>
 #include <rmt/voronoifps.hpp>
 #include <set>
 #include <unordered_map>

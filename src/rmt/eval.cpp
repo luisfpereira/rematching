@@ -11,6 +11,7 @@
  */
 #define NOMINMAX
 #include <rmt/eval.hpp>
+#include <rmt/utils.hpp>
 #include <assert.h>
 #include <igl/hausdorff.h>
 #include <igl/point_mesh_squared_distance.h>

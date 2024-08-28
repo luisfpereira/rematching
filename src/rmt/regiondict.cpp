@@ -10,6 +10,7 @@
  * @date        2024-01-12
  */
 #include <rmt/region.hpp>
+#include <rmt/utils.hpp>
 #include <cut/cut.hpp>
 #include <iostream>
 

@@ -10,6 +10,7 @@
  * @date        2024-01-15
  */
 #include <rmt/flatunion.hpp>
+#include <rmt/utils.hpp>
 
 
 rmt::FlatUnion::FlatUnion(const rmt::Mesh& M, rmt::VoronoiPartitioning& VPart)
