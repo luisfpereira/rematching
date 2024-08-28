@@ -42,3 +42,13 @@ struct TripleHash
 
 
 } // namespace rmt
+
+
+
+#include <Eigen/Dense>
+
+
+namespace Eigen
+{
+    inline Eigen::internal::all_t all = Eigen::placeholders::all;
+};

@@ -19,10 +19,6 @@
 #define NOMINMAX
 #include <igl/doublearea.h>
 #include <igl/facet_components.h>
-namespace Eigen
-{
-    Eigen::internal::all_t all = Eigen::placeholders::all;
-};
 #include <igl/remove_unreferenced.h>
 #include <igl/remove_duplicate_vertices.h>
 
