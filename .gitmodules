@@ -12,3 +12,6 @@
 [submodule "ext/cut"]
 	path = ext/cut
 	url = https://github.com/filthynobleman/cut.git
+[submodule "ext/pybind11"]
+	path = ext/pybind11
+	url = https://github.com/pybind/pybind11.git
