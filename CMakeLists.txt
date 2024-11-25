@@ -43,15 +43,16 @@ target_link_libraries(RMT cut Threads::Threads)
 set_target_properties(RMT PROPERTIES CXX_STANDARD 17)
 
 
-set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/pyrmt")
-set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/pyrmt")
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/pyrmt")
-foreach( OUTPUTCONFIG ${CMAKE_CONFIGURATION_TYPES} )
-    string( TOUPPER ${OUTPUTCONFIG} OUTPUTCONFIG )
-    set( CMAKE_ARCHIVE_OUTPUT_DIRECTORY_${OUTPUTCONFIG} "${CMAKE_BINARY_DIR}/pyrmt")
-    set( CMAKE_LIBRARY_OUTPUT_DIRECTORY_${OUTPUTCONFIG} "${CMAKE_BINARY_DIR}/pyrmt")
-    set( CMAKE_RUNTIME_OUTPUT_DIRECTORY_${OUTPUTCONFIG} "${CMAKE_BINARY_DIR}/pyrmt")
-endforeach( OUTPUTCONFIG CMAKE_CONFIGURATION_TYPES )
+# we don't want to reset all those files => otherwise our setup script doesn't find the python package and it will consequently not be copied correctly to our site-packages directory
+#set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/pyrmt")
+#set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/pyrmt")
+#set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/pyrmt")
+#foreach( OUTPUTCONFIG ${CMAKE_CONFIGURATION_TYPES} )
+#    string( TOUPPER ${OUTPUTCONFIG} OUTPUTCONFIG )
+#    set( CMAKE_ARCHIVE_OUTPUT_DIRECTORY_${OUTPUTCONFIG} "${CMAKE_BINARY_DIR}/pyrmt")
+#    set( CMAKE_LIBRARY_OUTPUT_DIRECTORY_${OUTPUTCONFIG} "${CMAKE_BINARY_DIR}/pyrmt")
+#    set( CMAKE_RUNTIME_OUTPUT_DIRECTORY_${OUTPUTCONFIG} "${CMAKE_BINARY_DIR}/pyrmt")
+#endforeach( OUTPUTCONFIG CMAKE_CONFIGURATION_TYPES )
 
 
 # Include PyBind
@@ -62,4 +63,4 @@ pybind11_add_module(PyRMT "${CMAKE_SOURCE_DIR}/src/python/pyrmt.cpp")
 target_link_libraries(PyRMT PRIVATE RMT)
 
 # Copy example
-configure_file("${CMAKE_SOURCE_DIR}/python/sample.py" "${CMAKE_BINARY_DIR}/pyrmt/sample.py" COPYONLY)
+#configure_file("${CMAKE_SOURCE_DIR}/python/sample.py" "${CMAKE_BINARY_DIR}/pyrmt/sample.py" COPYONLY)
