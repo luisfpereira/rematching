@@ -54,9 +54,8 @@ foreach( OUTPUTCONFIG ${CMAKE_CONFIGURATION_TYPES} )
 endforeach( OUTPUTCONFIG CMAKE_CONFIGURATION_TYPES )
 
 
-# Find PyBind
-set(pybind11_DIR "path/to/pybind11/share/cmake/pybind11")
-find_package(pybind11 REQUIRED)
+# Include PyBind
+add_subdirectory(ext/pybind11)
 
 # Add pybind module
 pybind11_add_module(PyRMT "${CMAKE_SOURCE_DIR}/src/python/pyrmt.cpp")
