@@ -4,12 +4,14 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # Build and install libCUT
-include(ExternalProject)
-ExternalProject_Add(CUT
-                    SOURCE_DIR "${CMAKE_SOURCE_DIR}/ext/cut"
-                    BINARY_DIR "${CMAKE_SOURCE_DIR}/build-cut"
-                    INSTALL_DIR "${CMAKE_SOURCE_DIR}/install"
-                    CMAKE_ARGS "-DCMAKE_INSTALL_PREFIX=${CMAKE_SOURCE_DIR}/install")
+message("Patching cmake file of cut library...") # this is necessary so that we can build it with the project
+set(CUT_CMAKES_LIST ${CMAKE_SOURCE_DIR}/ext/cut/CMakeLists.txt)
+file(READ ${CUT_CMAKES_LIST} FILE_CONTENTS)
+string(REPLACE "CMAKE_SOURCE_DIR" "PROJECT_SOURCE_DIR" FILE_CONTENTS "${FILE_CONTENTS}")
+file(WRITE ${CUT_CMAKES_LIST} "${FILE_CONTENTS}")
+message("Done.")
+add_subdirectory(${CMAKE_SOURCE_DIR}/ext/cut)
+include_directories("${CMAKE_SOURCE_DIR}/ext/cut/include/")
 
 
 # Include dependencies
@@ -17,11 +19,6 @@ include_directories("${CMAKE_SOURCE_DIR}/ext/eigen")
 include_directories("${CMAKE_SOURCE_DIR}/ext/libigl/include")
 include_directories("${CMAKE_SOURCE_DIR}/ext/json/include")
 include_directories("${CMAKE_SOURCE_DIR}/install/cut/include")
-if(MSVC)
-    set(libCUT "${CMAKE_SOURCE_DIR}/install/cut/lib/cut.lib")
-elseif(UNIX)
-    set(libCUT "${CMAKE_SOURCE_DIR}/install/cut/lib/libcut.a")
-endif()
 set(THREADS_PREFER_PTHREAD_FLAG ON)
 find_package(Threads REQUIRED)
 
@@ -42,7 +39,7 @@ add_library(RMT STATIC  "${CMAKE_SOURCE_DIR}/src/rmt/graph.cpp"
                         "${CMAKE_SOURCE_DIR}/src/rmt/eval.cpp"
                         "${CMAKE_SOURCE_DIR}/src/rmt/io.cpp"
                         "${CMAKE_SOURCE_DIR}/src/rmt/rmt.cpp")
-target_link_libraries(RMT ${libCUT} Threads::Threads)
+target_link_libraries(RMT cut Threads::Threads)
 set_target_properties(RMT PROPERTIES CXX_STANDARD 17)
 
 
