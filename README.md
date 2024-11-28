@@ -8,29 +8,20 @@ This branch contains the Python bindings for the core C++ implementation.
 - DOI: https://arxiv.org/abs/2305.09274
 - PDF: https://arxiv.org/abs/2305.09274
 
-## Building instructions
-The building process is entirely carried out with CMake. If you have not already cloned the repository recursively, or if you have not updated the submodules, please run
+## Installation instructions
+(Optional: create a virtual environment and activate it.)
+`PyRMT` python bindings can simply be installed by cloning the project. Inside the root directory of the project one simply needs to execute
 ```
-git submodule update --init --recursive --remote
+python setup.py install
 ```
+
 
 For building the project, you need [CMake](https://cmake.org/) and a C++ compiler compliant with [C++17 standard](https://en.cppreference.com/w/cpp/compiler_support/17).  
 The Python bindings also require a working installation of [Python 3](https://www.python.org/) and [pybind11](https://pybind11.readthedocs.io/en/stable/installing.html).  
 
-> :warning: remember to change `CMakeLists.txt:60` to your pybind11's CMake folder.
-
-From the root directory of the project, execute the following commands:
-```
-mkdir build
-cd build
-cmake .. -DCMAKE_INSTALL_PREFIX="../install"
-cmake --build . --config release
-```
-This will produce all the required Python files inside the directory `build/pyrmt`.
-
 
 ## Usage
-The directory `build/pyrmt` also contains a sample Python application `sample.py` for testing the method and showcasing the interface.  
+The directory `python/` contains a sample Python application `sample.py` for testing the method and showcasing the interface.
 The sample application also requires a working installation of [libigl for Python](https://libigl.github.io/libigl-python-bindings/), [numpy](https://numpy.org/), and [scipy](https://scipy.org/).  
 
 
