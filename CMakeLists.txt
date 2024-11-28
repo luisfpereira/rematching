@@ -57,7 +57,7 @@ endforeach( OUTPUTCONFIG CMAKE_CONFIGURATION_TYPES )
 
 
 # Find PyBind
-set(pybind11_DIR "path/to/pybind11/share/cmake/pybind11")
+set(pybind11_DIR "/opt/hostedtoolcache/Python/3.12.7/x64/lib/python3.12/site-packages/pybind11/share/cmake/pybind11")
 find_package(pybind11 REQUIRED)
 
 # Add pybind module
